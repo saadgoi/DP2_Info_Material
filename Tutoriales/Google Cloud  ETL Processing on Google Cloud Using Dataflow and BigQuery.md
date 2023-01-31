@@ -8,3 +8,13 @@ Para crear un bucket usaremos el siguiente código en la terminal de GCP
 ```
 gsutil mb gs://BUCKET_NAME
 ```
+
+
+
+
+```
+gcloud pubsub topics create $TOPIC_ID
+```
+```
+gcloud pubsub subscriptions create --topic TOPIC_ID SUBSCRIPTION_ID
+```
