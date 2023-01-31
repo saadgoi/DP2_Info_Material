@@ -21,3 +21,8 @@ Y para una suscripción al dicho topic (para suscribirse a otros topics simpleme
 ```
 gcloud pubsub subscriptions create --topic TOPIC_ID SUBSCRIPTION_ID
 ```
+Otra herramienta útil en este proceso ETL que estamos realizando es el **cloud scheduler**. Un servicio que permite automatizar y evitar trabajo manual (entre ellos, automatizar la publicación de datos), por lo que podríamos usar esto 
+
+# BIG QUERY
+
+bq query --use_legacy_sql=false 'SELECT * FROM `'"PROJECT_ID.tutorial_dataset.tutorial"'`'
