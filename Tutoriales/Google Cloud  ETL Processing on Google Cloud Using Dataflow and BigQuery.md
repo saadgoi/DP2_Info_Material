@@ -10,11 +10,14 @@ gsutil mb gs://BUCKET_NAME
 ```
 
 
-
+Para crear un topic, usamos el comando:
 
 ```
 gcloud pubsub topics create $TOPIC_ID
 ```
+
+Y para una suscripción al dicho topic (para suscribirse a otros topics simplemente cambiar el TOPIC_ID)
+
 ```
 gcloud pubsub subscriptions create --topic TOPIC_ID SUBSCRIPTION_ID
 ```
