@@ -30,7 +30,7 @@ import random
 import ssl
 import time
 import json
-from api.py import iterate_rows
+from api import iterate_rows
 import jwt
 import paho.mqtt.client as mqtt
 

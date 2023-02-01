@@ -1,25 +1,26 @@
-from flask import Flask
-from flask import request
-#from flask import jsonify
 
-app = Flask(__name__)
+project_id = deft-epigram-375817
+bucket-name = edem-serverless-bucket
 
 
-#Ruta donde tenemos la carpeta , + el metódo de Get y Post
-@app.route('/app/v1/Desktop/<id>', methods=["GET", "POST"])
-# Defino una función donde quiero que me imprima de que metodo es esa request
-def users_action(id):
-    print(request.form)
-    #print(request.form['temperatura'])
-    #print(request.method)
-    if( request.method == "POST") :
-        print( " guardate en la base")
-        return " guardado"
-    else:
-        print("recurso obtenido")
-        return id
-    
-    # Todos los return nos los devuelve en Postman
-    
-#Corremos el código, nos dará una Url que introduciremos en Postman 
-app.run(debug=True)
+gcloud builds submit --tag 'gcr.io/deft-epigram-375817/dataflow/edem:latest' .
+
+
+gcloud dataflow flex-template build "gs://edem-serverless-bucket/dataflowtemplate.json" \
+  --image 'gcr.io/deft-epigram-375817/dataflow/edem:latest' \
+  --sdk-language "PYTHON" 
+
+
+
+gcloud dataflow flex-template run "edem-dataflow-job2" \
+    --template-file-gcs-location "gs://edem-serverless-bucket/dataflowtemplate.json" \
+    --region "europe-west4"
+
+
+python edemDeviceData.py \
+    --algorithm RS256 \
+    --cloud_region europe-west1 \
+    --device_id edemDevice \
+    --private_key_file rsa_private.pem \
+    --project_id deft-epigram-375817 \
+    --registry_id edemRegistry
