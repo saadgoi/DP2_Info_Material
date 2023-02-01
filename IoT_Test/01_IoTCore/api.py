@@ -1,23 +1,28 @@
 import pandas as pd
 import uuid
 import time
+import json
 
 # Crear dataframe y eliminar columnas innecesarias
-df = pd.read_csv("MOCK.csv")
+df = pd.read_csv("dataset.csv")
 #print(df)
 
-# Guardar datos necesarias iterando por cada fila en un JSON
 def iterate_rows():
-    for index, row in df.iterrows():
-        sensor_data = {"id": uuid.uuid1(), 
-                        "time": row["first_name"],
-                        "pressure": row["email"]}
-        time.sleep(2)
-        #print(sensor_data)
-    return sensor_data
+    # Tener una API indefinida
+    while True:
+        #iterando por cada fila del dataframe
+        for index, row in df.iterrows():
+            # guardar datos necesarios en una variable del formato json
+            sensor_data = {"id": str(uuid.uuid1()), 
+                            "time": row["FECHA"],
+                            "pressure": row["SP Presión absoluta mb"], 
+                            "temperature": row["SP Tª masa SW"]}
+            # guardar la variable en un archivo json, que se sobreescribe cada segundo 
+            with open("sensor_data.json", "w") as jsonFile:
+                json.dump(sensor_data, jsonFile)
+            time.sleep(1)
+            #print(sensor_data)
+        return sensor_data
 
-# Tener una API indefinida
-while True:
-    iterate_rows()
-# Ejecutar la función en un bucle indefinido para fingir una API
+iterate_rows()
 
