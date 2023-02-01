@@ -2,28 +2,28 @@
     "fields": [
     {
       "mode": "NULLABLE",
-      "name": "device_id",
+      "name": "id",
       "type": "STRING"
     },
     {
       "mode": "NULLABLE",
-      "name": "timeStamp",
+      "name": "time",
       "type": "STRING"
     },
     {
       "mode": "NULLABLE",
-      "name": "processingTime",
+      "name": "motor_power",
       "type": "STRING"
+    },
+    {
+      "mode": "NULLABLE",
+      "name": "pressure",
+      "type": "FLOAT"
     },
     {
       "mode": "NULLABLE",
       "name": "temperature",
       "type": "FLOAT"
-    },
-    {
-      "mode": "NULLABLE",
-      "name": "humidity",
-      "type": "NUMERIC"
     }
     ]
 }

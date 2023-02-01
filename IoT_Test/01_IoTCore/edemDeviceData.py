@@ -30,9 +30,13 @@ import random
 import ssl
 import time
 import json
-
+from api.py import iterate_rows
 import jwt
 import paho.mqtt.client as mqtt
+
+
+# ejecutar nuestra simulación de API
+iterate_rows()
 
 # [END iot_mqtt_includes]
 
@@ -534,12 +538,8 @@ def mqtt_device_demo(args):
             client.connect(args.mqtt_bridge_hostname, args.mqtt_bridge_port)
 
         #payload = "{}/{}-payload-{}".format(args.registry_id, args.device_id, i)
-        payload_device = {
-            "device_id": args.device_id,
-            "timeStamp": str(datetime.datetime.now()),
-            "temperature": round(random.uniform(16,26),2),
-            "humidity": round(random.uniform(39,61),2)
-        }
+        f = open('sensor_data.json')
+        payload_device = json.load(f)
         print("Publishing message {}/{}: '{}'".format(i, args.num_messages, payload_device))
         # [START iot_mqtt_jwt_refresh]
         seconds_since_issue = (datetime.datetime.now(tz=datetime.timezone.utc) - jwt_iat).seconds
