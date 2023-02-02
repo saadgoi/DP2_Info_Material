@@ -148,6 +148,7 @@ python edemDeviceData.py \
 - [IoT Real-time Serverless architecture Part 01](https://www.youtube.com/watch?v=gXngs3pTYJ8)
 - [IoT Real-time Serverless architecture Part 02](https://www.youtube.com/watch?v=mh8kNW1OOAU)
 
+# Libraries 
 
 **datetime**: Used to create and manipulate date/time objects. In our case, returning the exact time at the moment of execution and time zone.
 
