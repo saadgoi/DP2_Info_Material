@@ -147,3 +147,31 @@ python edemDeviceData.py \
 # Videos
 - [IoT Real-time Serverless architecture Part 01](https://www.youtube.com/watch?v=gXngs3pTYJ8)
 - [IoT Real-time Serverless architecture Part 02](https://www.youtube.com/watch?v=mh8kNW1OOAU)
+
+
+**datetime**: Used to create and manipulate date/time objects. In our case, returning the exact time at the moment of execution and time zone.
+
+**logging**: The library is widely used for debugging, tracking changes, and understanding the behavior of a program
+
+**random**: Library used to generate random values, in our case, creating data for our mock sensors.
+
+**os**: It is a portable way of interacting with the underlying operating system, allowing your Python code to run on multiple platforms without modification.
+
+**ssl**: SSJ stands for Secure Sockets Layer. It is used to stablish a secure encrypted connection between devices over a network where others could be “spying” on the communication.
+
+**time**: A designated library to interact with time, such as the sleep function which we used to set intervals in our data stream.
+
+**json**: As its name says, this is a library we used to work with JSON files. We used to json.dumps to convert/write python objects into a json string.
+
+**api**: Just like the previous library, this library is also quite self-explanatory. As it’s used to interact with APIs, and in our case, to simulate one iterating rows our data.
+
+**jwt**: JWT stands for JSON Web Token
+
+**paho.mqtt**: MQTT is a publish/subscribe messaging 
+
+**Base64**: Base64 is a method of encoding binary data into ASCII text, so that it can be transmitted or stored in a text-based format.
+
+**Argparse**: It helps you write code to parse command-line arguments and options, and provides useful error messages and help text for users. With argparse, you can specify the arguments and options your script should accept, and the module will automatically generate a parser that can interpret the arguments passed to your script.
+
+**Uuid**: The uuid library in Python is a module that provides the ability to generate UUIDs (Universally Unique Identifiers), as well as various utility functions for working with UUIDs.
+

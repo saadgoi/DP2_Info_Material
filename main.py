@@ -1,12 +1,12 @@
 
-project_id = deft-epigram-375817
-bucket-name = edem-serverless-bucket
+project_id = edem-serverless-jrg
+bucket-name = edem-serverless-jrg
 
 
-gcloud builds submit --tag 'gcr.io/deft-epigram-375817/dataflow/edem:latest' .
+gcloud builds submit --tag 'gcr.io/edem-serverless-jrg/dataflow/edem:latest' .
 
 
-gcloud dataflow flex-template build "gs://edem-serverless-bucket/dataflowtemplate.json" \
+gcloud dataflow flex-template build "gs://edem-serverless-jrg/dataflowtemplate.json" \
   --image 'gcr.io/deft-epigram-375817/dataflow/edem:latest' \
   --sdk-language "PYTHON" 
 
