@@ -92,7 +92,7 @@ def edemData(project_id, bq_dataset, output_table):
             | "WindowByMinute" >> beam.WindowInto(window.FixedWindows(60))
             | "MeanByWindow" >> beam.CombineGlobally(MeanCombineFn()).without_defaults()
             | "Add Window ProcessingTime" >>  beam.ParDo(add_processing_time())
-            | "WriteToPubSub" >>  beam.io.WriteToPubSub(topic="projects/{project_id}/topics/iotToCloudFunctions", with_attributes=False)
+            | "WriteToPubSub" >>  beam.io.WriteToPubSub(topic=f"projects/{project_id}/topics/iotToCloudFunctions", with_attributes=False)
         )
 
 if __name__ == '__main__':
